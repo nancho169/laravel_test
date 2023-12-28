@@ -3,10 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Laravel</title>
-    <link href="{{  asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
-    <link rel="icon" href="{{asset('img/creeper.png')}}"/>
     <link href="{{ asset('fontawesome/css/all.css') }}"/>
+    <link href="{{  asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{  asset('css/jquery.alerts.min.css') }}" rel="stylesheet"/>
+    
+    <link rel="icon" href="{{asset('img/creeper.png')}}"/>
+    
     <link href="{{ asset('jquery-confirm-v3.3.4/css/jquery-confirm.css') }}"  />
+    
     <style>
         .bd-placeholder-img {
           font-size: 1.125rem;
@@ -116,6 +120,8 @@
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('formularios_inicio') }}">Formularios</a>
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('helper_inicio') }}">Helpers</a>
             <a class="nav-item nav-link link-body-emphasis" href="{{ route('email_inicio') }}">E-mail</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('bd_inicio') }}">BD</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('utiles_inicio') }}">Utiles</a>
             
             
           </nav>
@@ -134,7 +140,13 @@
         </p>
       </footer>
       <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+      <script src="{{asset('js/bootstrap.js')}}"></script>
       <script src="{{ asset('jquery-confirm-v3.3.4/js/jquery-confirm.js') }}"></script>
+      <script src="{{ asset('fontawesome/js/all.js') }}"></script>
+      <script src="{{asset('js/jquery.alerts.min.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/funciones.js')}}?id={{ csrf_token() }}"></script>
+      
+      
       @stack('js')
 </body>
 </html>
