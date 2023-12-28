@@ -6,7 +6,8 @@ use App\Http\Controllers\TemplateControler;
 use App\Http\Controllers\FormulariosController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\BdController;
+use App\Http\Controllers\UtilesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +39,31 @@ Route::post('/formularios/upload',[FormulariosController::class,'formularios_upl
 Route::get('/helper',[HelperController::class,'helper_inicio'])->name('helper_inicio'); 
 Route::get('/mail',[EmailController::class,'email_inicio'])->name('email_inicio'); 
 Route::get('/mail/enviar',[EmailController::class,'email_enviar'])->name('email_enviar'); 
+
+
+Route::get('/bd',[BdController::class,'bd_inicio'])->name('bd_inicio'); 
+Route::get('/bd/categorias',[BdController::class,'bd_categorias'])->name('bd_categorias'); 
+Route::get('/bd/categorias/add',[BdController::class,'bd_categorias_add'])->name('bd_categorias_add'); 
+Route::post('/bd/categorias/add',[BdController::class,'bd_categorias_add_post'])->name('bd_categorias_add_post'); 
+Route::get('/bd/categorias/edit/{id}',[BdController::class,'bd_categorias_edit'])->name('bd_categorias_edit'); 
+Route::post('/bd/categorias/edit/{id}',[BdController::class,'bd_categorias_edit_post'])->name('bd_categorias_edit_post'); 
+Route::get('/bd/categorias/delete/{id}',[BdController::class,'bd_categorias_delete'])->name('bd_categorias_delete'); 
+Route::get('/bd/productos',[BdController::class,'bd_productos'])->name('bd_productos'); 
+Route::get('/bd/productos/add',[BdController::class,'bd_productos_add'])->name('bd_productos_add'); 
+Route::post('/bd/productos/add',[BdController::class,'bd_productos_add_post'])->name('bd_productos_add_post'); 
+Route::get('/bd/productos/edit/{id}',[BdController::class,'bd_productos_edit'])->name('bd_productos_edit'); 
+Route::post('/bd/productos/edit/{id}',[BdController::class,'bd_productos_edit_post'])->name('bd_productos_edit_post'); 
+Route::get('/bd/productos/delete/{id}',[BdController::class,'bd_productos_delete'])->name('bd_productos_delete'); 
+Route::get('/bd/productos/categoria/{id}',[BdController::class,'bd_productos_categorias'])->name('bd_productos_categorias'); 
+Route::get('/bd/productos/fotos/{id}',[BdController::class,'bd_productos_fotos'])->name('bd_productos_fotos'); 
+Route::post('/bd/productos/fotos/{id}',[BdController::class,'bd_productos_fotos_post'])->name('bd_productos_fotos_post'); 
+Route::get('/bd/productos/fotos/delete/{producto_id}/{foto_id}',[BdController::class,'bd_productos_fotos_delete'])->name('bd_productos_fotos_delete'); 
+Route::get('/bd/productos/paginacion',[BdController::class,'bd_productos_paginacion'])->name('bd_productos_paginacion'); 
+Route::get('/bd/buscador',[BdController::class,'bd_productos_buscador'])->name('bd_productos_buscador'); 
+
+//RUTAS DEL CONTROLADOR UTILES
+Route::get('/utiles',[UtilesController::class,'utiles_inicio'])->name('utiles_inicio');
+Route::get('/utiles/pdf',[UtilesController::class,'utiles_pdf'])->name('utiles_pdf');
+Route::get('/utiles/excel',[UtilesController::class,'utiles_excel'])->name('utiles_excel');
+Route::get('/utiles/cliente-rest',[UtilesController::class,'utiles_cliente_rest'])->name('utiles_cliente_rest');
+Route::get('/utiles/cliente-soap',[UtilesController::class,'utiles_cliente_soap'])->name('utiles_cliente_soap');
