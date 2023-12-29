@@ -7,7 +7,8 @@ use App\Http\Controllers\FormulariosController;
 use App\Http\Controllers\HelperController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdController;
-use App\Http\Controllers\UtilesController;
+use App\Http\Controllers\AccesoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,3 +68,8 @@ Route::get('/utiles/pdf',[UtilesController::class,'utiles_pdf'])->name('utiles_p
 Route::get('/utiles/excel',[UtilesController::class,'utiles_excel'])->name('utiles_excel');
 Route::get('/utiles/cliente-rest',[UtilesController::class,'utiles_cliente_rest'])->name('utiles_cliente_rest');
 Route::get('/utiles/cliente-soap',[UtilesController::class,'utiles_cliente_soap'])->name('utiles_cliente_soap');
+
+//RUTAS ACCESO
+Route::get('/acceso/login',[AccesoController::class,'acceso_login'])->name('acceso_login');
+Route::get('/acceso/registro',[AccesoController::class,'acceso_registro'])->name('acceso_registro');
+Route::post('/acceso/registro',[AccesoController::class,'acceso_registro_post'])->name('acceso_registro_post');

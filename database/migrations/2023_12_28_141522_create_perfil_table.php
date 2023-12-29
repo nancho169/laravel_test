@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
-        //$table->string('nombre',100);
+        Schema::create('perfil', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre',100);
+        });
     }
 
     /**
@@ -20,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('perfil');
     }
 };
