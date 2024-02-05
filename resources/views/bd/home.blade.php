@@ -1,7 +1,7 @@
 @extends('../layouts.frontend')
 
 @section('content')
-    <h1>BD MySQL </h1>
+<p class="fs-1">PRODUCTOS</p>
     <ul>
         <li>
          <a href="{{ route('bd_categorias')}}">Categorías</a>

@@ -1,12 +1,12 @@
 @extends('../layouts.frontend')
 
 @section('content')
-<h1>BD m</h1>
+<p class="fs-1">AGREGAR CATEGORÍA</p>
 <x-flash />
-<form action="{{route('bd_categorias_add_post')}}" method="POST">
+<form action="{{route('bd_categorias_add_post')}}" method="POST" >
 
 
-    <div class="form-group">
+    <div class="form-group bg-body-secondary" >
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre" class="from-control" value="{{ old('nombre') }}" />
     </div>

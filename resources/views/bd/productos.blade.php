@@ -1,14 +1,14 @@
 @extends('../layouts.frontend')
 
 @section('content')
-    <h1>BD MySQL</h1>
     
+    <p class="fs-1">PRODUCTOS</p>
     <x-flash />
     
     <p class="d-flex justify-content-end">
         <a href="{{ route('bd_productos_add') }}" class="btn btn-success"><i class="fas fa-check"></i>Crear</a>
     </p>
-    <div class="table-responsive">
+    <div class="table-responsive bg-body-secondary">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>

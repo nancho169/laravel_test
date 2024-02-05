@@ -34,11 +34,11 @@ class BdController extends Controller
 
         $request->validate(
             [
-                'nombre'=>'required|min:6'
+                'nombre'=>'required|min:4'
             ],
             [
                 'nombre.required'=>'El campo Nombre esta vació',
-                'nombre.min'=> 'El campo Nombre debe tener al menos 6 caracteres'
+                'nombre.min'=> 'El campo Nombre debe tener al menos 4 caracteres'
             ]
         );
         Categorias::create([
@@ -108,13 +108,13 @@ class BdController extends Controller
         
         $request->validate(
             [
-                'nombre'=>'required|min:6',
+                'nombre'=>'required|min:4',
                 'precio'=>'required|numeric',
                 'descripcion'=>'required'
             ],
             [
                 'nombre.required'=>'El campo Nombre esta vacío',
-                'nombre.min'=>'El campo Nombre debe tener al menos 6 caracteres',
+                'nombre.min'=>'El campo Nombre debe tener al menos 4 caracteres',
                 'precio.required'=>'El campo Precio está vacío',
                 'descripcion.required'=>'el campo Descripción está'
             ]

@@ -8,6 +8,7 @@ use App\Http\Controllers\HelperController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\AccesoController;
+use App\Http\Controllers\UtilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,5 +72,6 @@ Route::get('/utiles/cliente-soap',[UtilesController::class,'utiles_cliente_soap'
 
 //RUTAS ACCESO
 Route::get('/acceso/login',[AccesoController::class,'acceso_login'])->name('acceso_login');
+Route::POST('/acceso/login',[AccesoController::class,'acceso_login_post'])->name('acceso_login_post');
 Route::get('/acceso/registro',[AccesoController::class,'acceso_registro'])->name('acceso_registro');
 Route::post('/acceso/registro',[AccesoController::class,'acceso_registro_post'])->name('acceso_registro_post');

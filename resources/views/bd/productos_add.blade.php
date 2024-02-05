@@ -1,7 +1,10 @@
 @extends('../layouts.frontend')
 
 @section('content')
-<h1>BD m</h1>
+<p class="fs-1">Carga de producto</p>   
+<div class="alert alert-info" role="alert">
+   Antes de la carga del producto procure crear la categoría a la que pertenecerá ese producto.
+  </div>
 <x-flash />
 <form action="{{route('bd_productos_add_post')}}" method="POST">
 

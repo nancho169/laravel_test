@@ -4,15 +4,48 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserMetadata;
 class AccesoController extends Controller
 {
     //
     public function acceso_login(){
-
+        return view('acceso.login');
     }
 
+    public function acceso_login_post(Request $request){
+        
+        $request->validate(
+            [
+                'correo'=>'required|email:rfc,dns',
+                'password'=>'required|min:6'
+        ],
+            [
+                'correo.required'=>'El campo E-Mail está vacío',
+                'correo.email'=>'El E-Mail ingresado no es válido',
+                'password.required'=>'El campo Password está vacío',
+                'password.min'=>'El campo Password debe tener al menos 6 caracteres',
+                
+
+            ]
+        );
+        if(Auth::attempt(['email'=>$request->input('correo'),
+        'password'=>$request->input('password')]))
+        {
+            $usuario = UserMetadata::where(['users_id'=>Auth::id()])->first();
+            session(['users_metadata_id'=>$usuario->id]);
+            session(['perfil_id'=>$usuario->perfil_id]);
+            session(['perfil'=>$usuario->perfil->nombre]);
+            return redirect()->intended('/template');
+        }
+        else{
+            $request->session()->flash('css','danger');
+            $request->session()->flash('mensaje','La credenciales indicadas no son válidas');
+            return redirect()->route('acceso_login');
+        }
+
+    }
     public function acceso_registro(){
         return view('acceso.registro');
     }
@@ -45,7 +78,6 @@ class AccesoController extends Controller
                 'name'=>$request->input('nombre'),
                 'email'=>$request->input('correo'),
                 'password'=>Hash::make($request->input('password')),
-              
                 'crated_at'=>date('Y-m-d H:i:s')
             ]
             );

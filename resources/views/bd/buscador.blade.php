@@ -1,8 +1,8 @@
 @extends('../layouts.frontend')
 
 @section('content')
-    <h1>BD MySQL Buscador</h1>
-    <h3>Resultados para el término : <strong>{{$b}}</strong></h3>
+<p class="fs-1">Productos</p>    
+<p class="fs-3">Resultados para el término : <strong>{{$b}}</strong></p>
     <x-flash />
     <!--Buscador-->
     <div class="row">

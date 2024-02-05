@@ -9,6 +9,7 @@
         "ext-gd": "*",
         "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.8",
+        "koolreport/core": "^6.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",

@@ -96,35 +96,80 @@
 <body>
     <div class="container">
         <header class="border-bottom lh-1 py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
+          
+
+            <!-- LOGIN -->
+            @if(Auth::check())
+            <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-              <a class="link-secondary" href="#">Subscribe</a>
+             
             </div>
             <div class="col-4 text-center">
               <a class="blog-header-logo text-body-emphasis text-decoration-none" href="{{ route('template_inicio') }}">
-                <img src="{{ asset('img/creeper.png')}}" width="20%">
+                <img class="bd-placeholder-img" width="20%" src="{{ asset('img/icono_productos.jpg') }}">
               </a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
               <a class="link-secondary" href="#" aria-label="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
               </a>
-              <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+              
+               <b> <a>Bienvenido, {{ Auth::user()->name}}  ({{session('perfil')}})</a></b>
+
+               <br>
+              
+              
+              
+            </div>   
             </div>
-          </div>
+            @else
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-4 pt-1">
+                <a class="link-secondary text-body-secondary"  href="{{ route('acceso_registro') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>
+                  Registo</a>
+              </div>
+              <div class="col-4 text-center">
+                <a class="blog-header-logo text-body-emphasis text-decoration-none" href="{{ route('template_inicio') }}">
+                  <img class="bd-placeholder-img" width="20%" src="{{ asset('img/icono_productos.jpg') }}">
+                </a>
+              </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+              <a class="link-secondary" href="#" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+              </a>
+              <a class="btn btn-sm btn-outline-secondary bg-body-secondary" href="{{ route('acceso_login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                Acceso</a>
+            </div>   
+          </div> 
+            @endif
+            
+            <!-- /LOGIN -->
+          
         </header>
       
-        <div class="nav-scroller py-1 mb-3 border-bottom">
+        <div class="nav-scroller py-1 mb-3 border-bottom bg-body-secondary">
           <nav class="nav nav-underline justify-content-between">
-            <a class="nav-item nav-link link-body-emphasis active" href="{{ route('template_inicio') }}">Home</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('formularios_inicio') }}">Formularios</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('helper_inicio') }}">Helpers</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('email_inicio') }}">E-mail</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('bd_inicio') }}">BD</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_login') }}">Login</a>
-            <a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_registro') }}">Registro</a>
+            <a class="nav-item nav-link link-body-emphasis active" href="{{ route('template_inicio') }}"><i class="fa fa-home" aria-hidden="true"></i>
+              Inicio</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('bd_categorias') }}"><i class="fa fa-tags" aria-hidden="true"></i>
+              Categorías</a>
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('bd_productos_buscador') }}"><i class="fa fa-list-alt" aria-hidden="true"></i>
 
-            
+              Productos</a>
+            <!--<a class="nav-item nav-link link-body-emphasis" href="{{ route('email_inicio') }}">Usuarios</a>-->
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('utiles_inicio') }}"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+
+              Reportes</a>
+            <!--<a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_login') }}">Login</a>-->
+            <!--<a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_registro') }}">Registro</a>-->
+            @if(Auth::check())
+            <a class="nav-item nav-link link-body-emphasis" href=""><i class="fa fa-user" aria-hidden="true"></i>
+            Perfil</a>
+            <a  class="nav-item nav-link link-body-danger"  href=""><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i>
+              Cerrar</a>
+            @else
+              
+            @endif
           </nav>
         </div>
       </div>
