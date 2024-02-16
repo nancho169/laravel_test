@@ -163,11 +163,11 @@
             <!--<a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_login') }}">Login</a>-->
             <!--<a class="nav-item nav-link link-body-emphasis" href="{{ route('acceso_registro') }}">Registro</a>-->
             @if(Auth::check())
-            <a class="nav-item nav-link link-body-emphasis" href=""><i class="fa fa-user" aria-hidden="true"></i>
+            <a class="nav-item nav-link link-body-emphasis" href="{{ route('protegida_inicio')}}"><i class="fa fa-user" aria-hidden="true"></i>
             Perfil</a>
-            <a  class="nav-item nav-link link-body-danger"  href=""><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i>
+            <a  class="nav-item nav-link link-body-danger"  href="javascript:void(0)" onclick="confirmaAlert('Realmente desea cerrar la sesión?', '{{ route('acceso_salir')}}');"><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i>
               Cerrar</a>
-            @else
+        @else
               
             @endif
           </nav>

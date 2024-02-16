@@ -54,7 +54,7 @@ class AccesoController extends Controller
 
         $request->validate(
             [
-                'nombre'=>'required|min:6',
+                'nombre'=>'required|min:5',
                 'correo'=>'required|email:rfc,dns|unique:users,email',
                 'telefono'=>'required',
                 'direccion'=>'required',
@@ -94,4 +94,20 @@ class AccesoController extends Controller
             return redirect()->route('acceso_registro');
     }
     
+
+    public function acceso_salir(Request $request){
+
+        //Logout
+        Auth::logout();
+        //Destruye sesión
+        $request->session()->forget('users_metadata_id');
+        $request->session()->forget('perfil_id');
+        $request->session()->forget('perfil');
+
+        //Mensaje
+        $request->session()->flash('css','success');
+        $request->session()->flash('mensaje','Cerraste la sesión exitosamente');
+        return redirect()->route('acceso_login');
+    }
+
 }

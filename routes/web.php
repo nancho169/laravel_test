@@ -9,7 +9,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\BdController;
 use App\Http\Controllers\AccesoController;
 use App\Http\Controllers\UtilesController;
-
+use App\Http\Controllers\ProtegidaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,3 +75,10 @@ Route::get('/acceso/login',[AccesoController::class,'acceso_login'])->name('acce
 Route::POST('/acceso/login',[AccesoController::class,'acceso_login_post'])->name('acceso_login_post');
 Route::get('/acceso/registro',[AccesoController::class,'acceso_registro'])->name('acceso_registro');
 Route::post('/acceso/registro',[AccesoController::class,'acceso_registro_post'])->name('acceso_registro_post');
+Route::get('/acceso/salir',[AccesoController::class,'acceso_salir'])->name('acceso_salir');
+
+//RUTAS PROTEGIDO
+//Route::get('/',[ProtegidaController::class,'home_inicio'])->name('home_inicio');
+Route::get('/protegida',[ProtegidaController::class,'protegida_inicio'])->name('protegida_inicio');
+Route::get('/protegida/otra',[ProtegidaController::class,'protegida_otra'])->name('protegida_otra');
+Route::get('/protegida/sin-acceso',[ProtegidaController::class,'protegida_sin_acceso'])->name('protegida_sin_acceso');
